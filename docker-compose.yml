@@ -1,0 +1,35 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=dbUser
+      - POSTGRES_PASSWORD=dbPassword
+      - POSTGRES_DB=default-db
+    volumes:
+      - ../../temp/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - my-network
+
+  spring-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: "spring-app"
+    environment:
+      - DB_USER=dbUser
+      - DB_PASSWORD=dbPassword
+      - DB_NAME=default-db
+      - DB_HOST=postgres
+    ports:
+      - "8080:8080"
+    networks:
+      - my-network
+    depends_on:
+      - postgres
+
+networks:
+  my-network:
+    driver: bridge
