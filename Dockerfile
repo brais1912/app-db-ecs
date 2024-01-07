@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11
+FROM openjdk:17-jdk-slim
 EXPOSE 8080
 WORKDIR /opt/app
 ARG JAR_FILE=target/app-db-ecs-0.0.1-SNAPSHOT.jar
