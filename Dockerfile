@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM amazoncorretto:11-alpine-jdk
 EXPOSE 8080
 WORKDIR /opt/app
 ARG JAR_FILE=target/app-db-ecs-0.0.1-SNAPSHOT.jar
