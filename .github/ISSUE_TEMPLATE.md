@@ -1,16 +1,9 @@
 ---
-title: Deployment Approval Required for {{ env.ENVIRONMENT }}
+title: Deployment Approval Required
 labels: deployment-requested
 ---
 
-Deployment Approval requested from {{ payload.sender.login }}
+Deployment Approval requested from Brais
 
 Comment "/deploy" to kick the deployment off.
 
-```json target_payload
-{
-    "runNumber": "{{ env.RUNNUMBER }}
-    "environment": "{{ env.ENVIRONMENT }}
-    "imageTag": "{{ env.TAG }}"
-}
-```
