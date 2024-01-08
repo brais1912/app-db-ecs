@@ -1,15 +1,13 @@
 package com.example.appdbecs.saludo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.domain.Persistable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.UUID;
 
@@ -22,6 +20,7 @@ import java.util.UUID;
 public class Saludo implements Serializable, Persistable<UUID> {
 
     @Id
+    @GeneratedValue
     private UUID id;
     private String saludo;
     private String nombre;
@@ -29,11 +28,8 @@ public class Saludo implements Serializable, Persistable<UUID> {
     private boolean isDefault;
 
     @Override
+    @JsonIgnore
     public boolean isNew() {
         return false;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 }
