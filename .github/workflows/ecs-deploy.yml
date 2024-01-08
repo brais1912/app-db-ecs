@@ -113,3 +113,16 @@ jobs:
           service: ${{ env.ECS_SERVICE }}
           cluster: ${{ env.ECS_CLUSTER }}
           wait-for-service-stability: true
+
+  close-issue:
+    needs: [deploy-dev]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close Issue
+        if: ${{ needs.deploy-dev.result == 'success'}}
+        uses: brais1912/create-or-update-comment@main
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: "Deployment Completed 🌟"
+          token: ${{ secrets.BRAIS_TOKEN }}
