@@ -48,7 +48,9 @@ const listToArray = (str) => {
     }).filter(([_, v]) => v != null));
     Core.debug(`Object for new issue: """${JSON.stringify(opts, null, 2)}"""`)
     // https://docs.github.com/en/rest/reference/issues#create-an-issue
+    console.log('Before creating the issue');
     const newIssue = await octokit.rest.issues.create(opts);
+    console.log('After creating the issue');
     Core.info(`Created: ${newIssue.data.html_url}`)
     Core.setOutput("json", JSON.stringify(newIssue.data));
     Core.setOutput("number", newIssue.data.number);
