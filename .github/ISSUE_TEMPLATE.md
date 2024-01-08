@@ -1,9 +1,6 @@
 ---
-title: Deployment Approval Required
-labels: deployment-requested
+title: Someone just pushed
+assignees: JasonEtco, matchai
+labels: bug, enhancement
 ---
-
-Deployment Approval requested from Brais
-
-Comment "/deploy" to kick the deployment off.
-
+Someone just pushed, oh no! Here's who did it: {{ payload.sender.login }}.
