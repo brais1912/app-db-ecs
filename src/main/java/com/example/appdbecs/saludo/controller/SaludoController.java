@@ -21,14 +21,19 @@ public class SaludoController {
         return saludoRepository.findByIsDefaultTrue();
     }
 
+    @GetMapping("/{id}")
+    public Saludo getSaludo(@PathVariable UUID id) {
+        return saludoRepository.findAllById(List.of(id)).get(0);
+    }
+
     @GetMapping
     public List<Saludo> getSaludos() {
         return saludoRepository.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Saludo getSaludo(@PathVariable UUID id) {
-        return saludoRepository.findAllById(List.of(id)).get(0);
+    @GetMapping("/nombre")
+    public List<Saludo> getSaludoByNombre(@RequestParam String nombre) {
+        return saludoRepository.findAllByNombre(nombre);
     }
 
     @PostMapping
