@@ -1,6 +1,16 @@
 ---
-title: Someone just pushed
-assignees: JasonEtco, matchai
-labels: bug, enhancement
+title: Deployment Approval Required for {{ env.ENVIRONMENT }}
+labels: deployment-requested
 ---
-Someone just pushed, oh no! Here's who did it: {{ payload.sender.login }}.
+
+Deployment Approval requested from {{ payload.sender.login }}
+
+Comment "/deploy" to kick the deployment off.
+
+```json target_payload
+{
+    "runNumber": "{{ env.RUNNUMBER }}
+    "environment": "{{ env.ENVIRONMENT }}
+    "imageTag": "{{ env.TAG }}"
+}
+```
