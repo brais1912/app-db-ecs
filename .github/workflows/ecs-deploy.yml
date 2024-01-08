@@ -46,6 +46,7 @@ permissions:
 jobs:
   parse:
     if: ${{ !github.event.issue.pull_request && github.event.comment.body == '/deploy' }}
+    runs-on: ubuntu-latest
     outputs:
       deploy-environment: 'Dev'
     steps:
