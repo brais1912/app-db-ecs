@@ -144,3 +144,11 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           body: "Deployment Completed 🌟"
           token: ${{ secrets.BRAIS_TOKEN }}
+
+      - name: Comment Issue
+        if: ${{ needs.deploy-dev.result == 'failure'}}
+        uses: brais1912/create-or-update-comment@main
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: "Deployment Completed 💥"
+          token: ${{ secrets.BRAIS_TOKEN }}
