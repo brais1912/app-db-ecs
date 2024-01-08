@@ -51,9 +51,10 @@ jobs:
       deploy-environment: 'Dev'
     steps:
       - name: Comment on Issue
+        uses: brais1912/create-or-update-comment@main
         env:
           token: ${{ secrets.BRAIS_TOKEN }}
-        uses: brais1912/create-or-update-comment@main
         with:
           issue-number: ${{ github.event.issue.number }}
           body: "Deployment Initiated 🚀"
+          token: ${{ secrets.BRAIS_TOKEN }}
