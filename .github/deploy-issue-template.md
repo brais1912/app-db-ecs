@@ -9,8 +9,8 @@ Comment "/deploy" to kick the deployment off.
 
 ```json target_payload
 {
-    "runNumber": "{{ env.RUNNUMBER }}
-    "environment": "{{ env.ENVIRONMENT }}
+    "runNumber": "{{ env.RUNNUMBER }}"
+    "environment": "{{ env.ENVIRONMENT }}"
     "imageTag": "{{ env.TAG }}"
 }
 ```
