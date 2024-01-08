@@ -52,7 +52,6 @@ jobs:
     steps:
       - name: Comment on Issue
         env:
-          GITHUB_TOKEN: ${{ secrets.BRAIS_TOKEN }}
           token: ${{ secrets.BRAIS_TOKEN }}
         uses: brais1912/create-or-update-comment@main
         with:
