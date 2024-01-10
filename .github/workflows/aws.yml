@@ -105,7 +105,7 @@ jobs:
 #        echo "::set-output name=tag::$TAGS"
 
     - name: Create an issue
-      uses: .github/actions/create-an-issue@main
+      uses: ../actions/create-an-issue@main
       env:
         ENVIRONMENT: Dev
         RUNNUMBER: ${{ github.run_number }}
