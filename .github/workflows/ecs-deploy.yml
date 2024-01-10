@@ -139,10 +139,10 @@ jobs:
     steps:
       - name: Close Issue
         if: ${{ needs.deploy-dev.result == 'success'}}
-        uses: brais1912/create-or-update-comment@main
+        uses: brais1912/close-issue@main
         with:
           issue-number: ${{ github.event.issue.number }}
-          body: "Deployment Completed 🌟"
+          comment: "Deployment Completed 🌟"
           token: ${{ secrets.BRAIS_TOKEN }}
 
       - name: Comment Issue
@@ -150,5 +150,5 @@ jobs:
         uses: brais1912/create-or-update-comment@main
         with:
           issue-number: ${{ github.event.issue.number }}
-          body: "Deployment Completed 💥"
+          comment: "Deployment Failed 💥"
           token: ${{ secrets.BRAIS_TOKEN }}
