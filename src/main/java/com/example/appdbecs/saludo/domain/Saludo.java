@@ -1,6 +1,5 @@
 package com.example.appdbecs.saludo.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,7 +27,6 @@ public class Saludo implements Serializable, Persistable<UUID> {
     private boolean isDefault;
 
     @Override
-    @JsonIgnore
     public boolean isNew() {
         return false;
     }
