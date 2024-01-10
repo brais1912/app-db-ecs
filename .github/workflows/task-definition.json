@@ -1,9 +1,9 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:002707363165:task-definition/task-github-ecs:14",
+  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:002707363165:task-definition/task-github-ecs:20",
   "containerDefinitions": [
     {
       "name": "github-ecs",
-      "image": "002707363165.dkr.ecr.eu-west-3.amazonaws.com/bgu/github-ecs:733d41d9f71bded3e692dbb3c6aa8886002e7609",
+      "image": "002707363165.dkr.ecr.eu-west-3.amazonaws.com/bgu/github-ecs:527e826a805bde5e31bae979bd51addaa2c9498a",
       "cpu": 0,
       "portMappings": [
         {
@@ -55,7 +55,7 @@
   "taskRoleArn": "arn:aws:iam::002707363165:role/ecsTaskExecutionRole",
   "executionRoleArn": "arn:aws:iam::002707363165:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
-  "revision": 14,
+  "revision": 20,
   "volumes": [],
   "status": "ACTIVE",
   "requiresAttributes": [
@@ -104,7 +104,7 @@
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2024-01-08T00:34:00.598Z",
+  "registeredAt": "2024-01-10T18:54:37.923Z",
   "registeredBy": "arn:aws:iam::002707363165:root",
   "tags": []
 }
