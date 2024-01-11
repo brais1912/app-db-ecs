@@ -42,6 +42,7 @@ env:
 
 permissions:
   contents: read
+  issues: write
 
 jobs:
   parse:
@@ -55,7 +56,7 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           body: "Deployment Initiated 🚀"
-          token: ${{ secrets.BRAIS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   deploy-dev:
     needs: [parse]
@@ -143,7 +144,7 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           comment: "Deployment Completed 🌟"
-          token: ${{ secrets.BRAIS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Comment Issue
         if: ${{ needs.deploy-dev.result == 'failure'}}
@@ -151,4 +152,4 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           comment: "Deployment Failed 💥"
-          token: ${{ secrets.BRAIS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
