@@ -46,7 +46,7 @@ permissions:
 
 jobs:
 
-  build-and-create-issue:
+  build:
     name: Create an issue to deploy
     runs-on: ubuntu-latest
     environment: dev
