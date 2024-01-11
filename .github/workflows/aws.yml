@@ -54,20 +54,20 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Build and package
-      env:
-        DB_USER: dbUser
-        DB_HOST: default-db.cjeeq0ke4cwk.eu-west-3.rds.amazonaws.com
-        DB_PASSWORD: dbPassword1
-        DB_NAME: default-db
-      run: |
-        chmod +x mvnw
-        ./mvnw clean package
-        ls target
-
-    - name: Build Docker image
-      run: |
-        docker build -t app-db-ecs .
+#    - name: Build and package
+#      env:
+#        DB_USER: dbUser
+#        DB_HOST: default-db.cjeeq0ke4cwk.eu-west-3.rds.amazonaws.com
+#        DB_PASSWORD: dbPassword1
+#        DB_NAME: default-db
+#      run: |
+#        chmod +x mvnw
+#        ./mvnw clean package
+#        ls target
+#
+#    - name: Build Docker image
+#      run: |
+#        docker build -t app-db-ecs .
 
 #    - name: Configure AWS credentials
 #      uses: aws-actions/configure-aws-credentials@v1
