@@ -67,7 +67,7 @@ jobs:
         ls target
 
     - name: Create an issue
-      uses: JasonEtco/create-an-issue@v2.9.1
+      uses: brais1912/create-an-issue@main
       env:
         ENVIRONMENT: Dev
         RUNNUMBER: ${{ github.run_number }}
