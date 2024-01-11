@@ -110,7 +110,7 @@ jobs:
         ENVIRONMENT: Dev
         RUNNUMBER: ${{ github.run_number }}
         TAG: ${{ steps.vars.outputs.tag }}
-        GITHUB_TOKEN: ${{ secrets.BRAIS_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
 #    - name: Fill in the new image ID in the Amazon ECS task definition
