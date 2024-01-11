@@ -151,5 +151,5 @@ jobs:
         uses: brais1912/create-or-update-comment@main
         with:
           issue-number: ${{ github.event.issue.number }}
-          comment: "Deployment Failed 💥"
+          body: "Deployment Failed 💥"
           token: ${{ secrets.GITHUB_TOKEN }}
