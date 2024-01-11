@@ -6,7 +6,6 @@ import org.mapstruct.Mapper;
 
 @Mapper
 public interface SaludoMapper {
-
     SaludoDTO toSaludoDTO(Saludo saludo);
     Saludo toSaludo(SaludoDTO saludoDTO);
 }
