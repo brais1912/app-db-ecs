@@ -1,9 +1,9 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:002707363165:task-definition/task-github-ecs:23",
+  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:002707363165:task-definition/task-github-ecs:31",
   "containerDefinitions": [
     {
       "name": "github-ecs",
-      "image": "002707363165.dkr.ecr.eu-west-3.amazonaws.com/bgu/github-ecs:ae1811edf171ea78ccb5fef7a879412fdad68ab0",
+      "image": "002707363165.dkr.ecr.eu-west-3.amazonaws.com/bgu/github-ecs:e06ca59ac4313890c7151513b1a33881feb5919d",
       "cpu": 0,
       "portMappings": [
         {
@@ -29,7 +29,6 @@
           "value": "default-db"
         }
       ],
-      "environmentFiles": [],
       "mountPoints": [],
       "volumesFrom": [],
       "secrets": [
@@ -38,7 +37,6 @@
           "valueFrom": "arn:aws:secretsmanager:eu-west-3:002707363165:secret:DB_PASSWORD-MJHYvk"
         }
       ],
-      "ulimits": [],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
@@ -46,8 +44,7 @@
           "awslogs-group": "/ecs/task-github-ecs",
           "awslogs-region": "eu-west-3",
           "awslogs-stream-prefix": "ecs"
-        },
-        "secretOptions": []
+        }
       }
     }
   ],
@@ -55,7 +52,7 @@
   "taskRoleArn": "arn:aws:iam::002707363165:role/ecsTaskExecutionRole",
   "executionRoleArn": "arn:aws:iam::002707363165:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
-  "revision": 23,
+  "revision": 31,
   "volumes": [],
   "status": "ACTIVE",
   "requiresAttributes": [
@@ -104,7 +101,7 @@
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2024-01-11T09:25:03.944Z",
-  "registeredBy": "arn:aws:iam::002707363165:root",
+  "registeredAt": "2024-01-12T20:39:58.104Z",
+  "registeredBy": "arn:aws:iam::002707363165:user/github",
   "tags": []
 }
