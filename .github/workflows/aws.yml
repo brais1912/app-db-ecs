@@ -54,16 +54,16 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - name: Build and package
-      env:
-        DB_USER: dbUser
-        DB_HOST: test-database.cjeeq0ke4cwk.eu-west-3.rds.amazonaws.com
-        DB_PASSWORD: dbPassword
-        DB_NAME: default-db
-      run: |
-        chmod +x mvnw
-        ./mvnw clean package
-        ls target
+#    - name: Build and package
+#      env:
+#        DB_USER: dbUser
+#        DB_HOST: test-database.cjeeq0ke4cwk.eu-west-3.rds.amazonaws.com
+#        DB_PASSWORD: dbPassword
+#        DB_NAME: default-db
+#      run: |
+#        chmod +x mvnw
+#        ./mvnw clean package
+#        ls target
 
     - name: Build Docker image
       run: |
