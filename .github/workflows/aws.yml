@@ -24,7 +24,7 @@
 #    See the documentation for each action used below for the recommended IAM policies for this IAM user,
 #    and best practices on handling the access key credentials.
 
-name: Create an issue
+name: Push image to ECR repository
 
 on:
   push:
@@ -33,37 +33,30 @@ on:
 env:
   AWS_REGION: eu-west-3                   # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: bgu/github-ecs           # set this to your Amazon ECR repository name
-  ECS_SERVICE: svc-github-ecs                 # set this to your Amazon ECS service name
-  ECS_CLUSTER: test-cluster                 # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: .github/workflows/task-definition.json # set this to the path to your Amazon ECS task definition
-                                               # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: github-ecs           # set this to the name of the container in the
-                                               # containerDefinitions section of your task definition
 
 permissions:
   contents: read
-  issues: write
 
 jobs:
 
   build:
-    name: Create an issue to deploy
+    name: Push an image to ECR repository
     runs-on: ubuntu-latest
     environment: dev
 
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-#    - name: Build and package
-#      env:
-#        DB_USER: dbUser
-#        DB_HOST: test-database.cjeeq0ke4cwk.eu-west-3.rds.amazonaws.com
-#        DB_PASSWORD: dbPassword
-#        DB_NAME: default-db
-#      run: |
-#        chmod +x mvnw
-#        ./mvnw clean package
-#        ls target
+    - name: Build and package
+      env:
+        DB_USER: dbUser
+        DB_HOST: test-database.cjeeq0ke4cwk.eu-west-3.rds.amazonaws.com
+        DB_PASSWORD: dbPassword
+        DB_NAME: default-db
+      run: |
+        chmod +x mvnw
+        ./mvnw clean package
+        ls target
 
     - name: Build Docker image
       run: |
