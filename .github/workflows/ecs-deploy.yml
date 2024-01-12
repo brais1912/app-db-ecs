@@ -52,7 +52,7 @@ jobs:
       deploy-environment: 'Dev'
     steps:
       - name: Comment on Issue
-        uses: brais1912/create-or-update-comment@main
+        uses: ./.github/actions/create-or-update-comment
         with:
           issue-number: ${{ github.event.issue.number }}
           body: "Deployment Initiated 🚀"
@@ -71,8 +71,8 @@ jobs:
       - name: Build and package
         env:
           DB_USER: dbUser
-          DB_HOST: default-db.cjeeq0ke4cwk.eu-west-3.rds.amazonaws.com
-          DB_PASSWORD: dbPassword1
+          DB_HOST: test-database.cjeeq0ke4cwk.eu-west-3.rds.amazonaws.com
+          DB_PASSWORD: dbPassword
           DB_NAME: default-db
         run: |
           chmod +x mvnw
@@ -140,7 +140,7 @@ jobs:
     steps:
       - name: Close Issue
         if: ${{ needs.deploy-dev.result == 'success'}}
-        uses: brais1912/close-issue@main
+        uses: ./.github/actions/close-issue
         with:
           issue-number: ${{ github.event.issue.number }}
           comment: "Deployment Completed 🌟"
@@ -148,7 +148,7 @@ jobs:
 
       - name: Comment Issue
         if: ${{ needs.deploy-dev.result == 'failure'}}
-        uses: brais1912/create-or-update-comment@main
+        uses: ./.github/actions/create-or-update-comment
         with:
           issue-number: ${{ github.event.issue.number }}
           body: "Deployment Failed 💥"
