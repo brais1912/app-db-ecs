@@ -13,22 +13,22 @@ services:
     networks:
       - my-network
 
-#  spring-app:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#    container_name: "spring-app"
-#    environment:
-#      - DB_USER=dbUser
-#      - DB_PASSWORD=dbPassword
-#      - DB_NAME=default-db
-#      - DB_HOST=postgres
-#    ports:
-#      - "8080:8080"
-#    networks:
-#      - my-network
-#    depends_on:
-#      - postgres
+  spring-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: "spring-app"
+    environment:
+      - DB_USER=dbUser
+      - DB_PASSWORD=dbPassword
+      - DB_NAME=default-db
+      - DB_HOST=postgres
+    ports:
+      - "8080:8080"
+    networks:
+      - my-network
+    depends_on:
+      - postgres
 
 networks:
   my-network:
