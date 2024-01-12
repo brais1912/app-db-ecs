@@ -57,8 +57,8 @@ jobs:
     - name: Build and package
       env:
         DB_USER: dbUser
-        DB_HOST: default-db.cjeeq0ke4cwk.eu-west-3.rds.amazonaws.com
-        DB_PASSWORD: dbPassword1
+        DB_HOST: test-database.cjeeq0ke4cwk.eu-west-3.rds.amazonaws.com
+        DB_PASSWORD: dbPassword
         DB_NAME: default-db
       run: |
         chmod +x mvnw
